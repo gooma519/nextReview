@@ -1,6 +1,6 @@
 import { getServerSession } from "next-auth";
 import { authOptions } from "@/app/api/auth/[...nextauth]/route";
-import { useRouter } from "next/router";
+import { useRouter } from "next/navigation";
 
 function Page(props) {
   const session = getServerSession(authOptions);

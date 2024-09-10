@@ -10,7 +10,11 @@ export default async function handler(req, res) {
       req.body.password = await bcrypt.hash(password, 10);
       let db = (await connectDB).db("forum");
       let isDuplicate = await db.collection("users").findOne({ email: email });
-      if (!isDuplicate) {
+      let dbTest = (await connectDB).db("test");
+      let isDuplicateTest = await dbTest
+        .collection("users")
+        .findOne({ email: email });
+      if (!isDuplicate && !isDuplicateTest) {
         req.body.role = "normal";
         let result = db.collection("users").insertOne(req.body);
         return res.status(200).json("가입 성공!");

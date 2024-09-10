@@ -48,13 +48,7 @@ export const authOptions = {
     Google({
       clientId: process.env.GOOGLE_CLIENT_ID,
       clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-      authorization: {
-        params: {
-          prompt: "select_account",
-        },
-      },
     }),
-
     // ...add more providers here
   ],
   //3. jwt 써놔야 잘됩니다 + jwt 만료일설정
